@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-CRUD-app';
+  title = 'Angular4 App';
+  panel_title = 'Admin Dashboard';
+  add_button = true;
+  private showEmployee = false;
+  private showDashboard = true;
+  
+  addEmployee(){
+      this.showDashboard = false;
+      this.showEmployee = true;
+      console.log('add empployee method invoked '+this.showEmployee);
+  };
+
 }
