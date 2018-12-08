@@ -9,8 +9,8 @@ export class AppComponent {
   title = 'Angular4 App';
   panel_title = 'Admin Dashboard';
   add_button = true;
-  private showEmployee = false;
-  private showDashboard = true;
+  showEmployee = false;
+  showDashboard = true;
   
   addEmployee(){
       this.showDashboard = false;
