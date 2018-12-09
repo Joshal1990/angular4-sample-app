@@ -1,3 +1,4 @@
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { EmployeeComponent } from './employee/employee.component';
@@ -8,7 +9,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: AppComponent },
   { path: 'register', component: EmployeeComponent },
- // { path: 'heroes', component: HeroesComponent }
+  //{ path: 'delete/', component: DashboardComponent }
 ];
 
 @NgModule({
