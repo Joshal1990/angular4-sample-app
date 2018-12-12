@@ -22,8 +22,8 @@
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 			  <ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home</a></li>
-				<li><a href="#">About</a></li>
+				<li class="active"><a href="/dashboard">Home</a></li>
+				<li><a href="/register">Register</a></li>
 				<li><a href="#">Projects</a></li>
 				<li><a href="#">Contact</a></li>
 			  </ul>
@@ -32,19 +32,7 @@
 			  </ul>
 			</div>
 		</nav>
-		
-		<div class="panel panel-default">
-			<button type="button" *ngIf="add_button" class="btn btn-primary pull-right" routerLink="/register" (click)="addEmployee()">Add</button>
-			<div class="panel-heading">{{panel_title}}</div>
-			<div class="panel-body">
-          <div *ngIf="showDashboard">
-        <app-dashboard></app-dashboard>
-          </div>
-        <div *ngIf="showEmployee">
-          <app-employee></app-employee>
-        </div>
-			</div>
-		</div>
-  	</div>
+		<router-outlet></router-outlet>
+  </div>
 </body>
 </html>

@@ -1,5 +1,6 @@
 import { EmployeeService } from '../employee.service';
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Employee } from '../employee';
 
 @Component({
@@ -9,17 +10,22 @@ import { Employee } from '../employee';
 })
 export class DashboardComponent implements OnInit {
 
-  employeeList: Employee[];
+  employeeList: object[];
 
-  constructor(private empService: EmployeeService) { }
+  constructor(private empService: EmployeeService,
+    private http: HttpClient) { }
 
   deleteEmployee(index){
-    this.employeeList = this.employeeList.splice(index,1);
+    this.employeeList = JSON.parse(localStorage.getItem('localEmpValues')).splice(index,1);
   }
 
   ngOnInit() {
     console.log('dashboad init method invoked');
-    this.employeeList= this.empService.getEmployee();
+    this.http.get('http://localhost:8080/api/getDetails?id=34').subscribe(data => {
+      console.log(data);
+      this.employeeList = data as object[];
+      localStorage.setItem('localEmpValues',this.employeeList);
+      });
   }
 
 }

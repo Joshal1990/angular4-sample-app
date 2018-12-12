@@ -15,13 +15,13 @@
     <!--Table head-->
     <!--Table body-->
     <tbody>
-    <tr *ngFor="let index of employeeList; let in = index">
-      <th scope="row">{{index.id}}</th>
-      <td>{{index.first_name}}</td>
-      <td>{{index.last_name}}</td>
-      <td>{{index.age}}</td>
-      <td>{{index.country}}</td>
-      <td><a href="/edit">Edit</a> | <a (click) = "deleteEmployee(index.id)">Delete</a></td>
+    <tr *ngFor="let item of employeeList.contact_list">
+      <th scope="row">{{item.contactID}}</th>
+      <td>{{item.firstName}}</td>
+      <td>{{item.lastName}}</td>
+      <td>{{item.age}}</td>
+      <td>{{item.country}}</td>
+      <td><a href="/edit">Edit</a> | <a (click) = "deleteEmployee(item.contactID)">Delete</a></td>
     </tr>
     </tbody>
     <!--Table body-->
