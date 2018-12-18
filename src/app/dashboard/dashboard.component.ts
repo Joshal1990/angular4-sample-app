@@ -1,6 +1,6 @@
 import { EmployeeService } from '../employee.service';
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Employee } from '../employee';
 
 @Component({
@@ -15,17 +15,27 @@ export class DashboardComponent implements OnInit {
   constructor(private empService: EmployeeService,
     private http: HttpClient) { }
 
-  deleteEmployee(index){
-    this.employeeList = JSON.parse(localStorage.getItem('localEmpValues')).splice(index,1);
-  }
+  
 
-  ngOnInit() {
-    console.log('dashboad init method invoked');
-    this.http.get('http://localhost:8080/api/getDetails?id=34').subscribe(data => {
+  getAllContact(){
+    console.log('get all contact method called!!!');
+    this.http.get('http://localhost:8080/api/allContacts').subscribe(data => {
       console.log(data);
       this.employeeList = data as object[];
-      localStorage.setItem('localEmpValues',this.employeeList);
+      });
+  }
+  deleteContact(contactID){
+    console.log('delete method invoked!!!');
+    var params = new HttpParams().set('id',contactID);
+    this.http.post('http://localhost:8080/api/delete',params).subscribe(data => {
+      console.log(data);
+        if(data == 0){
+            this.getAllContact();
+        }
       });
   }
 
+  ngOnInit() {
+    this.getAllContact();
+  }
 }
