@@ -17,14 +17,14 @@ export class DashboardComponent implements OnInit {
 
   
 
-  getAllContact(){
+  /*getAllContact(){
     console.log('get all contact method called!!!');
     this.http.get('http://localhost:8080/api/allContacts').subscribe(data => {
       console.log(data);
       this.employeeList = data as object[];
       });
-  }
-  deleteContact(contactID){
+  }*/
+  /*deleteContact(contactID){
     console.log('delete method invoked!!!');
     var params = new HttpParams().set('id',contactID);
     this.http.post('http://localhost:8080/api/delete',params).subscribe(data => {
@@ -33,9 +33,9 @@ export class DashboardComponent implements OnInit {
             this.getAllContact();
         }
       });
-  }
+  }*/
 
   ngOnInit() {
-    this.getAllContact();
+   // this.getAllContact();
   }
 }
